@@ -1,0 +1,32 @@
+
+<%= form_for(@produto) do |f| %>
+  <% if @produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+
+      <ul>
+      <% @produto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <% tipos = [{nome: "Purificador", value: 1},{nome: "Câmara", value: 2}] %>
+    <%= f.label :tipo %><br>
+    <%= f.select :tipo, tipos.collect {|x| [x[:nome], x[:value]]}, {}, :multiple => false %>
+  </div>
+  <div class="field">
+    <% vencimentos = [{nome: "12 Meses", value: 1},{nome: "24 Meses", value: 2}] %>
+    <%= f.label :vencimento %><br>
+    <%= f.select :vencimento, vencimentos.collect {|x| [x[:nome], x[:value]]}, {}, :multiple => false %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

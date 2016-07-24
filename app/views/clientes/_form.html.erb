@@ -1,0 +1,61 @@
+<%= form_for(@cliente) do |f| %>
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf_cnpj %><br>
+    <%= f.text_field :cpf_cnpj %>
+  </div>
+  <div class="field">
+    <%= f.label :rua %><br>
+    <%= f.text_field :rua %>
+  </div>
+  <div class="field">
+    <%= f.label :numero %><br>
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :cep %><br>
+    <%= f.text_field :cep %>
+  </div>
+  <div class="field">
+    <%= f.label :bairro %><br>
+    <%= f.text_field :bairro %>
+  </div>
+  <div class="field">
+    <%= f.label :telefone %><br>
+    <%= f.text_field :telefone %>
+  </div>
+  <div class="field">
+    <%= f.label :celular %><br>
+    <%= f.text_field :celular %>
+  </div>
+  <div class="field">
+    <%= f.label :telefone_comercial %><br>
+    <%= f.text_field :telefone_comercial %>
+  </div>
+  <div class="field">
+    <%= f.label :data_nascimento %><br>
+    <%= f.date_select :data_nascimento %>
+  </div>
+  <div class="field">
+    <%= f.label :rg %><br>
+    <%= f.text_field :rg %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

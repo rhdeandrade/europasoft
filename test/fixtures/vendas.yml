@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2016-07-24
+  cliente_id: 
+  vendedor_id: 
+  produto: 
+  valor_total: 
+
+two:
+  data: 2016-07-24
+  cliente_id: 
+  vendedor_id: 
+  produto: 
+  valor_total: 
