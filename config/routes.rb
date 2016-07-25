@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :produtos
   resources :vendedors
   resources :clientes
+
+  get 'vendas/:id/troca_camara' => 'vendas#troca_camara', as: :troca_camara
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente_id: 
+  produto_id: 
+  data_compra: 2016-07-24
+  data_ultima_troca: 2016-07-24
+
+two:
+  cliente_id: 
+  produto_id: 
+  data_compra: 2016-07-24
+  data_ultima_troca: 2016-07-24

@@ -17,6 +17,10 @@ class VendasController < ApplicationController
     @venda = Venda.new
   end
 
+  def troca_camara
+    set_venda
+  end
+
   # GET /vendas/1/edit
   def edit
   end
@@ -27,7 +31,7 @@ class VendasController < ApplicationController
     @venda = Venda.new(venda_params)
 
     puts @venda
-    
+
     respond_to do |format|
       if @venda.save
         format.html { redirect_to @venda, notice: 'Venda was successfully created.' }

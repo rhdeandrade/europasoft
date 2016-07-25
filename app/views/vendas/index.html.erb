@@ -20,11 +20,11 @@
         <td><%= venda.data %></td>
         <td><%= venda.cliente %></td>
         <td><%= venda.vendedor %></td>
-        <td><%= venda.produto %></td>
+        <td><%= venda.produtos %></td>
         <td><%= venda.valor_total %></td>
         <td><%= link_to 'Show', venda %></td>
         <td><%= link_to 'Edit', edit_venda_path(venda) %></td>
-        <td><%= link_to 'Destroy', venda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Trocar Câmara', troca_camara_path(venda) %></td>
       </tr>
     <% end %>
   </tbody>
