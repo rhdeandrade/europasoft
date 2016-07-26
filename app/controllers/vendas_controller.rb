@@ -18,7 +18,8 @@ class VendasController < ApplicationController
   end
 
   def troca_camara
-    set_venda
+    @produtoTroca = ProdutosCliente.find(params[:produto_id])
+    @venda = Venda.new
   end
 
   # GET /vendas/1/edit
@@ -29,11 +30,23 @@ class VendasController < ApplicationController
   # POST /vendas.json
   def create
     @venda = Venda.new(venda_params)
-
-    puts @venda
+    produtos_cliente = []
+    @venda.produtos.each do |p|
+      if p.tipo == 2 or p.tipo == 1
+        produto_cliente = ProdutosCliente.new
+        produto_cliente.produto = p
+        produto_cliente.cliente = @venda.cliente
+        produto_cliente.data_compra = Time.new
+        produto_cliente.data_ultima_troca = Time.new
+        produtos_cliente.push(produto_cliente)
+      end
+    end
 
     respond_to do |format|
       if @venda.save
+        produtos_cliente.each do |pc|
+          pc.save
+        end
         format.html { redirect_to @venda, notice: 'Venda was successfully created.' }
         format.json { render :show, status: :created, location: @venda }
       else
@@ -75,6 +88,6 @@ class VendasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def venda_params
-      params.require(:venda).permit(:data, :cliente_id, :vendedor_id, :valor_total, {:produto_ids => []})
+      params.require(:venda).permit(:data, :cliente_id, :vendedor_id, :valor_total, :troca_camara,{:produto_ids => []})
     end
 end

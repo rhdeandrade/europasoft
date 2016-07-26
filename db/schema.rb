@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725000008) do
+ActiveRecord::Schema.define(version: 20160726011939) do
 
   create_table "clientes", force: :cascade do |t|
     t.string   "nome"
@@ -55,8 +55,9 @@ ActiveRecord::Schema.define(version: 20160725000008) do
     t.integer  "cliente_id"
     t.integer  "vendedor_id"
     t.float    "valor_total"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "troca_camara"
   end
 
   add_index "vendas", ["cliente_id"], name: "index_vendas_on_cliente_id"
