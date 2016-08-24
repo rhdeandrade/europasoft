@@ -17,10 +17,6 @@ class VendasController < ApplicationController
     @venda = Venda.new
   end
 
-  def troca_camara
-    @produtoTroca = ProdutosCliente.find(params[:produto_id])
-    @venda = Venda.new
-  end
 
   # GET /vendas/1/edit
   def edit
@@ -32,7 +28,7 @@ class VendasController < ApplicationController
     @venda = Venda.new(venda_params)
     produtos_cliente = []
     @venda.produtos.each do |p|
-      if p.tipo == 2 or p.tipo == 1
+      if (p.tipo == 2 or p.tipo == 1) && !@venda.troca_camara
         produto_cliente = ProdutosCliente.new
         produto_cliente.produto = p
         produto_cliente.cliente = @venda.cliente

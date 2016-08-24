@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Produtos de Clientes</h1>
+
+<table>
+  <thead>
+    <tr>
+    	<th>Cliente</th>
+      <th>Data de Compra</th>
+      <th>Data Última troca</th>
+      <th>Produto</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos_clientes.each do |pc| %>
+      <tr>
+      	<td><%= pc.cliente.nome %></td>
+        <td><%= pc.data_compra %></td>
+        <td><%= pc.data_ultima_troca %></td>
+        <td><%= pc.produto.nome %></td>
+        <td><%= link_to 'Trocar Câmara', troca_camara_path(pc) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venda', new_venda_path %>

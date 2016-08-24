@@ -1,0 +1,25 @@
+<%= form_for(@relacao_produto) do |f| %>
+  <% if @relacao_produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relacao_produto.errors.count, "error") %> prohibited this relacao_produto from being saved:</h2>
+
+      <ul>
+      <% @relacao_produto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :produto_id %><br>
+    <%= f.select :produto_id, Produto.where(["tipo = :t", { t: 1 }]).collect {|x| [x.nome, x.id]}, {}, :multiple => false %>
+  </div>
+  <div class="field">
+    <%= f.label :camara_troca_id %><br>
+    <%= f.select :camara_troca_id, Produto.where(["tipo = :t", { t: 2 }]).collect {|x| [x.nome, x.id]}, {}, :multiple => false %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

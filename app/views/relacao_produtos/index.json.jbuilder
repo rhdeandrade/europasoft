@@ -1,0 +1,1 @@
+json.array! @relacao_produtos, partial: 'relacao_produtos/relacao_produto', as: :relacao_produto

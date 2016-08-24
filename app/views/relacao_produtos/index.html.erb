@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Relacao Produtos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Camara troca</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relacao_produtos.each do |relacao_produto| %>
+      <tr>
+        <td><%= relacao_produto.produto.nome %></td>
+        <td><%= relacao_produto.camara_troca.nome %></td>
+        <td><%= link_to 'Show', relacao_produto %></td>
+        <td><%= link_to 'Edit', edit_relacao_produto_path(relacao_produto) %></td>
+        <td><%= link_to 'Destroy', relacao_produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relacao produto', new_relacao_produto_path %>

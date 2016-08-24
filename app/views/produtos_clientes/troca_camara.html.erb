@@ -1,0 +1,13 @@
+<h1>Troca de Câmara</h1>
+
+<%= form_tag(save_troca_camara_path, :method => "post") do %>
+	<%= hidden_field_tag :produtos_cliente_id, @produtos_cliente.id %>
+	<%= label_tag(:data_troca, "Data da Troca:") %>
+	<%= select_date Date.today, prefix: :data_troca, order: [:day, :month, :year] %>
+	<br>
+	<%= label_tag(:vendedor_id, "Vendedor:") %>
+	<%= select_tag(:vendedor_id, options_for_select(Vendedor.all.map{ |v| [v.nome, v.id]})) %>
+  <div><%= submit_tag 'Save' %></div>
+<% end -%>
+
+<%= link_to 'Cancelar', vendas_path %>
